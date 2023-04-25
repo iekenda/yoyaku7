@@ -9,6 +9,7 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
+    
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
             <div class="navbar-item">
@@ -40,13 +41,36 @@
         </div>
     </div>
 </nav>
+<% if (user_signed_in?) %>
+    <nav class="navbar has-shadow" style="z-index: 3;">
+        <div class="container">
+            <div class="navbar">
+                <%= link_to 'ダッシュボード', dashboard_path, class: "navbar-item" %>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">ホスト</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item"></a>
+                        <a class="navbar-item"></a>
+                    </div>
+                </div>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">ゲスト</a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item"></a>
+                        <a class="navbar-item"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+<% end %>
 <script>
-$(document).ready(function() {
-  // navbar burgerアイコンでクリックイベントを確認する
-  $(".navbar-burger").click(function() {
-      // 「navbar-burger」と「navbar-menu」の両方で「is-active」クラスを切り替える
-      $(".navbar-burger").toggleClass("is-active");
-      $(".navbar-menu").toggleClass("is-active");
-  });
-});
+    $(document).ready(function() {
+    // navbar burgerアイコンでクリックイベントを確認する
+    $(".navbar-burger").click(function() {
+        // 「navbar-burger」と「navbar-menu」の両方で「is-active」クラスを切り替える
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
+    });
 </script>
